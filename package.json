@@ -5,18 +5,22 @@
   "main": "end.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node -r esm server.js",
-    "server" : "nodemon -r esm server.js"
+    "start": "node -r esm server.js",
+    "server": "nodemon -r esm server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.12",
+    "cors": "^2.8.5",
     "esm": "^3.2.25",
     "express": "^4.20.0",
     "express-validator": "^7.2.0",
-    "mongoose": "^8.6.1"
+    "mongoose": "^6.9.2"
   },
   "devDependencies": {
     "concurrently": "^9.0.0",

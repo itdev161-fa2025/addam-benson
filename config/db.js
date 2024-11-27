@@ -3,13 +3,16 @@ import config from 'config';
 
 const db = config.get('mongoURI');
 
- export default connectDatabase = async () => {
+const connectDatabase = async () => {
     try {
         await mongoose.connect(db, {
             useUnifiedTopology: true
         });
+        console.log("connected to db")
     } catch (error) {
         console.error(error.message);
         process.exit(1);
     }
 }
+
+export default connectDatabase;
