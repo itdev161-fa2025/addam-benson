@@ -1,16 +1,20 @@
 import express from 'express';
 import connectDatabase from './config/db';
-import {check , validationResult} from express-Validator;
-import { checkSchema } from 'express-validator';
+import {check , validationResult} from 'express-validator';
+import cors from 'cors';
 
 const app = express();
 
 connectDatabase();
 
+//middleware
+app.use(express.json({extended : false}));
+app.use(cors({origin: 'http:localhost:3000'}));
+
 app.get('/', (req, res) =>
 res.send('api ping sent'));
 
-app.listen(3000, () => console.log('Express server running on port 3000'));
+
 
 app.post('/api/users',[
     check('name', 'Please enter your name').not().isEmpty(),
@@ -25,3 +29,5 @@ app.post('/api/users',[
         return res.send(res.body);
     }
 });
+
+app.listen(3000, () => console.log('Express server running on port 3000'));
