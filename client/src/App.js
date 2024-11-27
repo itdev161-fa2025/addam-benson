@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-
+import React from 'react';
 class App extends React.Component {
 
   state = {
@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
         <div className="App">
           <header className="App-Header">Good Things</header>
-          {this.state.data}
+
         </div>
     )
   }
